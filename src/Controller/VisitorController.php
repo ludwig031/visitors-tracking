@@ -29,8 +29,10 @@
       $data->setUserAgent($userAgent);
 
       $entityManager->persist($data);
-      $entityManager->flush();  
+      $entityManager->flush();
 
-      return new Response("<html><body>We are not monitoring you</body></html>");
+      return $this->render('base.html.twig');
+
+//      return new Response("<html><body>We are not monitoring you</body></html>");
     }
   }
