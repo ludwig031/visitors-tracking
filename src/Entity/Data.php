@@ -22,9 +22,20 @@ class Data
     private $ip;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $host;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $userAgent;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $time;
+
 
     public function getId(): ?int
     {
@@ -36,11 +47,35 @@ class Data
         return $this->ip;
     }
 
+    public function getHost(): ?string
+    {
+      return $this->host;
+    }
+
+    public function getUserAgent(): ?string
+    {
+      return $this->userAgent;
+    }
+
     public function setIp(?string $ip): self
     {
         $this->ip = $ip;
 
         return $this;
+    }
+
+    public function setHost(?string $host): self
+    {
+      $this->host = $host;
+
+      return $this;
+    }
+
+    public function setUserAgent(?string $userAgent): self
+    {
+      $this->userAgent = $userAgent;
+
+      return $this;
     }
 
     public function getTime(): ?\DateTimeInterface
