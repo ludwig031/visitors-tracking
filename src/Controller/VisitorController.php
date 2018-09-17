@@ -2,6 +2,7 @@
   namespace App\Controller;
 
   use App\Entity\Data;
+  use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
   use Symfony\Bundle\FrameworkBundle\Controller\Controller;
   use Symfony\Component\HttpFoundation\Request;
   use Symfony\Component\HttpFoundation\Response;
@@ -10,6 +11,7 @@
   class VisitorController extends Controller {
     /**
      * @Route("/")
+     * @Method({"GET"})
      * @param Request $request
      * @return Response
      */
@@ -32,7 +34,13 @@
       $entityManager->flush();
 
       return $this->render('base.html.twig');
+    }
 
-//      return new Response("<html><body>We are not monitoring you</body></html>");
+    /**
+     * @Route("/admin")
+     * @param Request $request
+     */
+    public function admin(Request $request) {
+
     }
   }
