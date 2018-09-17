@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User data{% endblock %}
+
+{% block body %}
+    {% if data %}
+        <table id="data" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ip</th>
+                <th>Time</th>
+                <th>Host</th>
+                <th>User agent</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in data %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.ip }}</td>
+                    <td>{{ user.time|date('d-m-Y') }}</td>
+                    <td>{{ user.host }}</td>
+                    <td>{{ user.userAgent }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data to display</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/main.js"></script>
+{% endblock %}
