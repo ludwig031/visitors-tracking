@@ -36,6 +36,10 @@ class Data
      */
     private $time;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $token;
 
     public function getId(): ?int
     {
@@ -55,6 +59,11 @@ class Data
     public function getUserAgent(): ?string
     {
       return $this->userAgent;
+    }
+
+    public function getToken(): ?string
+    {
+      return $this->token;
     }
 
     public function setIp(?string $ip): self
@@ -88,5 +97,12 @@ class Data
         $this->time = $time;
 
         return $this;
+    }
+
+    public function setToken(?string $token): self
+    {
+      $this->token = $token;
+
+      return $this;
     }
 }
