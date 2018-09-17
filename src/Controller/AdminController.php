@@ -17,4 +17,14 @@
 
       return $this->render('admin/index.html.twig', array ('data' => $data));
     }
+
+    /**
+     * @Route("/admin/{token}")
+     * @Method({"GET"})
+     */
+    public function show($token) {
+      $data = $this->getDoctrine()->getRepository(Data::class)->findBy(array('token' => $token));
+
+      return $this->render('admin/show.html.twig', array ('data' => $data));
+    }
   }
