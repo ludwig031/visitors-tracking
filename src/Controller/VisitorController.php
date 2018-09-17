@@ -35,12 +35,4 @@
 
       return $this->render('base.html.twig');
     }
-
-    /**
-     * @Route("/admin")
-     * @param Request $request
-     */
-    public function admin(Request $request) {
-
-    }
   }
